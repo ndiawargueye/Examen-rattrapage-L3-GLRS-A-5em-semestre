@@ -12,14 +12,12 @@ namespace GRH.Models
     {
         [Column("id")]
         public int Id { get; set; }
-
         [Column("type_conge")]
         public TypeConge TypeConge { get; set; }
 
         [Required]
         [Column("date_debut")]
-        public DateTime DateDebut { get; set; }
-
+        public DateTime DateDebut { get; set; 
         [Required]
         [Column("date_fin")]
         public DateTime DateFin { get; set; }
@@ -30,11 +28,11 @@ namespace GRH.Models
         [Column("motif")]
         public string Motif { get; set; }
 
-        // Clé étrangère
+   
         [Column("employe_id")]
         public int EmployeId { get; set; }
 
-        // Navigation
+        
         public virtual Employe Employe { get; set; }
     }
 }

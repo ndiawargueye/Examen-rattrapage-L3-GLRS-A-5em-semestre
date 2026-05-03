@@ -23,7 +23,7 @@ namespace GRH.Models
         [Column("budget", TypeName = "decimal(18,2)")]
         public decimal Budget { get; set; }
 
-        // Navigation
+     
         public virtual ICollection<Employe> Employes { get; set; }
     }
 }

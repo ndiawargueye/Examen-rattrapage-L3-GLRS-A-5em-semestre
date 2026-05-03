@@ -13,7 +13,6 @@ namespace GRH.Models
         [Required]
         [Column("intitule")]
         public string Intitule { get; set; }
-
         [Range(1, 5)]
         [Column("niveau_hierarchique")]
         public int NiveauHierarchique { get; set; }
@@ -24,7 +23,6 @@ namespace GRH.Models
         [Column("salaire_max", TypeName = "decimal(18,2)")]
         public decimal SalaireMax { get; set; }
 
-        // Navigation
         public virtual ICollection<Employe> Employes { get; set; }
     }
 }

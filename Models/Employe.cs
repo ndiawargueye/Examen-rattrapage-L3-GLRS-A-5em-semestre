@@ -35,14 +35,13 @@ namespace GRH.Models
         [Column("genre")]
         public string Genre { get; set; }
 
-        // Clés étrangères
+ 
         [Column("departement_id")]
         public int DepartementId { get; set; }
 
         [Column("poste_id")]
         public int PosteId { get; set; }
 
-        // Navigation
         public virtual Departement Departement { get; set; }
         public virtual Poste Poste { get; set; }
         public virtual ICollection<Contrat>    Contrats    { get; set; }

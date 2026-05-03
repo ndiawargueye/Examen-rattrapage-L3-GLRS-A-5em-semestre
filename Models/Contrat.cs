@@ -14,7 +14,6 @@ namespace GRH.Models
 
         [Column("type_contrat")]
         public TypeContrat TypeContrat { get; set; }
-
         [Required]
         [Column("date_debut")]
         public DateTime DateDebut { get; set; }
@@ -24,15 +23,14 @@ namespace GRH.Models
 
         [Column("salaire_base", TypeName = "decimal(18,2)")]
         public decimal SalaireBase { get; set; }
-
         [Column("periode_essai")]
         public bool PeriodeEssai { get; set; }
 
-        // Clé étrangère
+
         [Column("employe_id")]
         public int EmployeId { get; set; }
 
-        // Navigation
+     
         public virtual Employe Employe { get; set; }
     }
 }

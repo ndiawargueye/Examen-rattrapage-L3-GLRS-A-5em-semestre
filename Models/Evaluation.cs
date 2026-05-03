@@ -17,18 +17,17 @@ namespace GRH.Models
         [Range(0, 20)]
         [Column("note", TypeName = "decimal(4,2)")]
         public decimal Note { get; set; }
-
         [Column("commentaire")]
         public string Commentaire { get; set; }
 
         [Column("date_evaluation")]
         public DateTime DateEvaluation { get; set; }
 
-        // Clé étrangère
+  
         [Column("employe_id")]
         public int EmployeId { get; set; }
 
-        // Navigation
+    
         public virtual Employe Employe { get; set; }
     }
 }
