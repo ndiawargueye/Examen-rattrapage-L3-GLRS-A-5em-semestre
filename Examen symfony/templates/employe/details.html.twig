@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+{% block title %}{{ employe.prenom }} {{ employe.nom }}{% endblock %}
+
+{% block body %}
+<h2>{{ employe.prenom }} {{ employe.nom }}</h2>
+
+<div class="card mb-4">
+    <div class="card-body">
+        <p><strong>Matricule :</strong> {{ employe.matricule }}</p>
+        <p><strong>Email :</strong> {{ employe.email }}</p>
+        <p><strong>Date de naissance :</strong> {{ employe.dateNaissance|date('d/m/Y') }}</p>
+        <p><strong>Genre :</strong> {{ employe.genre }}</p>
+        <p><strong>Departement :</strong> {{ employe.departement ? employe.departement.nom : '-' }}</p>
+        <p><strong>Poste :</strong> {{ employe.poste ? employe.poste.intitule : '-' }}</p>
+    </div>
+</div>
+
+<h4>Contrats</h4>
+<a href="{{ path('employe_ajouter_contrat', {id: employe.id}) }}" class="btn btn-sm btn-primary mb-2">+ Ajouter un contrat</a>
+<table class="table table-sm table-bordered">
+    <thead><tr><th>Type</th><th>Debut</th><th>Fin</th><th>Salaire</th><th>Statut</th></tr></thead>
+    <tbody>
+    {% for c in employe.contrats %}
+        <tr>
+            <td>{{ c.typeContrat }}</td>
+            <td>{{ c.dateDebut|date('d/m/Y') }}</td>
+            <td>{{ c.dateFin ? c.dateFin|date('d/m/Y') : 'Indeterminee' }}</td>
+            <td>{{ c.salaireBase|number_format(0, ',', ' ') }} F</td>
+            <td>
+                {% if c.actif %}
+                    <span class="badge badge-success">Actif</span>
+                {% else %}
+                    <span class="badge badge-secondary">Cloture</span>
+                {% endif %}
+            </td>
+        </tr>
+    {% else %}
+        <tr><td colspan="5" class="text-center">Aucun contrat.</td></tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<a href="{{ path('employe_index') }}" class="btn btn-secondary">Retour</a>
+{% endblock %}

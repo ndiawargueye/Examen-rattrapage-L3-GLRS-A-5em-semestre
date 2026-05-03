@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+{% block title %}Nouvel Employe{% endblock %}
+
+{% block body %}
+<h2>Ajouter un employe</h2>
+<div class="card card-body mt-3">
+    {{ form_start(form) }}
+        {{ form_row(form.matricule) }}
+        {{ form_row(form.nom) }}
+        {{ form_row(form.prenom) }}
+        {{ form_row(form.email) }}
+        {{ form_row(form.dateNaissance) }}
+        {{ form_row(form.genre) }}
+        {{ form_row(form.departement) }}
+        {{ form_row(form.poste) }}
+        <button type="submit" class="btn btn-success">Enregistrer</button>
+        <a href="{{ path('employe_index') }}" class="btn btn-secondary">Annuler</a>
+    {{ form_end(form) }}
+</div>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+{% block title %}Ajouter un contrat{% endblock %}
+
+{% block body %}
+<h2>Ajouter un contrat — {{ employe.prenom }} {{ employe.nom }}</h2>
+<div class="card card-body mt-3">
+    {{ form_start(form) }}
+        {{ form_row(form.typeContrat) }}
+        {{ form_row(form.dateDebut) }}
+        {{ form_row(form.dateFin) }}
+        {{ form_row(form.salaireBase) }}
+        {{ form_row(form.periodeEssai) }}
+        {{ form_row(form.poste) }}
+        <button type="submit" class="btn btn-success">Enregistrer</button>
+        <a href="{{ path('employe_details', {id: employe.id}) }}" class="btn btn-secondary">Annuler</a>
+    {{ form_end(form) }}
+</div>
+{% endblock %}
