@@ -1,0 +1,12 @@
+Q1 — Pourquoi Main sans logique métier ?
+Main sert uniquement à afficher et saisir. 
+La logique (ex: validation du matricule) est dans EmployeService
+→ un seul endroit à modifier si les règles changent.
+
+Q2 — Service vs Repository ?
+Repository = stockage uniquement (ajouter, chercher, lister)
+Service = règles métier (vérifier que le matricule n'existe pas avant d'ajouter)
+
+Q3 — Deux employés même matricule ?
+La recherche retournerait le mauvais employé. Le service l'empêche : 
+il vérifie via rechercherParMatricule() avant d'ajouter, et refuse si le matricule est déjà pris.
